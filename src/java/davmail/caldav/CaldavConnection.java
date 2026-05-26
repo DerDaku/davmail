@@ -893,7 +893,7 @@ public class CaldavConnection extends AbstractConnection {
             response.appendProperty("D:resourcetype", "<D:collection/>");
         }
         if (request.hasProperty("displayname")) {
-            response.appendProperty("D:displayname", request.getLastPath());
+            response.appendProperty("D:displayname", StringUtil.xmlEncode(request.getLastPath()));
         }
         if (request.hasProperty("getctag")) {
             ExchangeSession.Folder rootFolder = session.getFolder("");
@@ -947,7 +947,7 @@ public class CaldavConnection extends AbstractConnection {
                         "<C:calendar xmlns:C=\"urn:ietf:params:xml:ns:caldav\"/>");
             }
             if (request.hasProperty("displayname")) {
-                response.appendProperty("D:displayname", session.getEmail());
+                response.appendProperty("D:displayname", StringUtil.xmlEncode(session.getEmail()));
             }
             if (request.hasProperty("supported-calendar-component-set")) {
                 response.appendProperty("C:supported-calendar-component-set", "<C:comp name=\"VEVENT\"/>");
