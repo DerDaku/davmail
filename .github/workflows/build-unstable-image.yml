@@ -35,6 +35,6 @@ jobs:
           file: ./src/docker/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:unstable
+            ghcr.io/derdaku/davmail:unstable
           cache-from: type=gha
           cache-to: type=gha,mode=max
